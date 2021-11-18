@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>TG POSTER</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <link rel="stylesheet" href="css/mdb.min.css" />
+	<style>
+	.mask-custom {
+	backdrop-filter: blur(9px);
+	background-color: rgba(0, 0, 0, 0.36);
+	}
+	
+	.form-input {
+  width:350px;
+  padding:20px;
+  background:#fff;
+  box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377),
+              3px 3px 7px rgba(94, 104, 121, 0.377);
+}
+.upup {
+  display:none;
+
+}
+.uplab {
+  width:45%;
+  height:45px;
+  line-height:50px;
+  text-align:center;
+  background:#1172c2;
+
+  color:#fff;
+  font-size:15px;
+  text-transform:Uppercase;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.upmage {
+  width:100%;
+  display:none;
+
+  margin-bottom:30px;
+}
+	.choose_file {
+    position: relative;
+    display: inline-block;   
+    margin-top: 2px;
+}
+.choose_file input[type="file"]{
+    -webkit-appearance:none; 
+    position:absolute;
+    top:0;
+    left:0;
+    opacity:0;
+    height: 100%;
+}
+	</style>
+</head>
+<body style="background-image: url('https://telegra.ph/file/d3c04a24928df948b3e73.jpg');background-position: center; background-size: cover;background-attachment:fixed;" >
+	<div class="bg-image" >
+		<div style="padding:30px" class="container mt-6">
+			<div class="row justify-content-center">
+				<div class="col-md-14" >
+					<div>
+					<div style="padding:10px;border-radius:20px" class="card mask-custom">
+							<div class="bg-image hover-overlay">
+								<div class="text-center">
+									<img style="border-radius:20px" src="img/logo.png" id="8" class="img-fluid ripple text-center" width="40%" alt="" />
+								</div>
+							</div>
+							<div class="card-body text-center gap-2">
+							<div class="d-grid gap-3">
+							<div class="choose_file">
+								<button id="buttonid" class="btn btn-primary">
+									<h5 class="fas fa-highlighter me-3"></h5>Upload Cover
+									</button>
+									<input name="img" id="fileid" type="file" accept="image/*" onchange="showPreview(event);" hidden/>
+									</div>	
+								
+									<div class="form-outline text-white">
+										<input type="text" id="imgurl" style="display:none"/>
+										<input type="text" id="Namarom" class="form-control text-white" />
+										<label class="form-label text-white" for="form12">Nama ROM</label>
+									</div>
+									<div class="btn-group shadow-0">
+										<input onChange="aver();"
+										type="radio"
+										class="btn-check"
+										name="options"
+										id="option1"
+										autocomplete="off"
+										Value="Android 10"
+										checked
+											/>
+									<label class="btn btn-outline-light" for="option1">A10</label>
+
+									<input Value="Android 11" type="radio" class="btn-check" name="options" id="option2" autocomplete="off" />
+									<label class="btn btn-outline-light" for="option2">A11</label>
+
+									<input Value="Android 12" type="radio" class="btn-check" name="options" id="option3" autocomplete="off" />
+									<label class="btn btn-outline-light" for="option3">A12</label>
+									</div>
+									
+								
+								
+									<div  class="btn-group shadow-0">
+										<input 
+										type="radio"
+										class="btn-check"
+										name="buildtipe"
+										id="opsi1"
+										autocomplete="off"
+										Value="GAPPS"
+										checked
+											/>
+									<label class="btn btn-outline-light" for="opsi1">Gapps</label>
+
+									<input Value="Vanilla" type="radio" class="btn-check" name="buildtipe" id="opsi2" autocomplete="off" />
+									<label class="btn btn-outline-light" for="opsi2">Vanilla</label>
+
+									<input Value="Vanilla & Gapps" type="radio" class="btn-check" name="buildtipe" id="opsi3" autocomplete="off" />
+									<label class="btn btn-outline-light" for="opsi3">Gapps & Vanilla</label>
+									</div>							
+								
+								<div  class="form-outline text-white">
+										<input type="text" id="namamain" class="form-control text-white" />
+										<label class="form-label text-white" for="form12">Maintainer</label>
+									</div>
+									<div  class="form-outline text-white">
+										<input type="date" id="theDate" value="2021-11-18" class="form-control text-white" />
+										<label class="form-label text-white" for="form12">Tanggal Build</label>
+									</div>
+									
+									<div class="form-outline text-white">
+									<textarea class="form-control text-white" id="notes" rows="6"></textarea>
+									<label class="form-label text-white" for="textAreaExample">Catatan lainnya</label>
+									</div>
+									<div  class="form-outline text-white">
+										<input type="text" id="linkrom" class="form-control text-white" />
+										<label class="form-label text-white" for="form12">Link ROM</label>
+									</div>
+									<button onclick="tes()" class="btn btn-primary">
+									<h5 class="fas fa-eye me-3"></h5>Pratinjau
+									</button>
+									
+							</div>
+						</div>
+					<div id="pratinjau" style="padding:5px;border-radius:20px;display:none" class="card mask-custom">
+							<div class="d-grid gap-3" style="padding:5px">
+							
+							<div class="card "style="border-radius:20px">
+							<img id="gambarurl"   class="card-img-top"    alt="..."  />
+								<div class="card-body" style="padding-left:5px">
+									<h5 id="namaroms" class="card-title"></h5><br>
+									<p id="maintainers" class="card-text"></p>
+									<p id="versirom" class="card-text"></p>
+									<p id="tanggal" class="card-text"></p>
+									<p id="buildrom" class="card-text"></p>
+									<h5 id="" class="card-title">Catatan Penting</h5><br>
+									<p id="cttn" class="card-text"></p>
+								</div>
+								
+							</div>
+							<a href="#!" class="btn btn-primary">Download ROM</a>
+							<div style="padding-right:2px" class="d-flex flex-row mb-2">
+							<a style="margin-right:2px" href="#!" class="btn btn-primary col-md-6">Cara Pasang</a>
+							<a style="margin-left:2px" href="#!" class="btn btn-primary col-md-6">Screenshot</a>
+							</div>
+							
+							
+							
+							</div >
+							<form class="whatsapp-form">
+							<input style="display:none" type="text" id="a1" class="form-control text-black" />
+							<input style="display:none" type="text" id="a2" class="form-control text-black" />
+							<input style="display:none" type="text" id="a3" class="form-control text-black" />
+							<input style="display:none" type="text" id="a4" class="form-control text-black" />
+							<input style="display:none" type="text" id="a5" class="form-control text-black" />
+							<textarea style="display:none" id="a6" class="form-control text-black"></textarea>
+							<input style="display:none" type="text" id="a7" class="form-control text-black" />
+							<input style="display:none" type="text" id="a8" class="form-control text-black" />
+							<button type="button" onclick="posting()" class="btn btn-primary">
+									<h5 class="fas fa-eye me-3"></h5>Pratinjau
+							</button>
+							
+							</form>
+							
+							</div>
+							</div>
+							</div>
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	document.getElementById('buttonid').addEventListener('click', openDialog);
+
+
+function openDialog() {
+  document.getElementById('fileid').click();
+}
+	function showPreview(event){
+   if(event.target.files.length > 0){
+    var src = URL.createObjectURL(event.target.files[0]);
+    var preview = document.getElementById("8");
+    preview.src = src;
+    document.getElementById("imgurl").value =src;
+  }
+}
+
+function tes(){
+	document.getElementById("pratinjau").style.display = "block";
+	var linkurl=document.getElementById("imgurl").value;
+	var narom =document.getElementById("Namarom").value;
+	var verom =document.getElementById("versirom").value;
+	var namain =document.getElementById("namamain").value;
+	var tgl = document.getElementById("theDate").value;
+	var ctn = document.getElementById("notes").value;
+	var aa = document.getElementById("option1").value;
+	var bb = document.getElementById("option2").value;
+	var cc = document.getElementById("option2").value;
+	var ling = document.getElementById("linkrom").value;
+	var radioBtn = document.getElementsByName("options");
+	var c;
+		for(i=0; i<radioBtn.length; i++){
+		if(radioBtn[i].checked){
+			c = radioBtn[i].value;
+	}
+	}
+	var baa = document.getElementById("opsi1").value;
+	var bbb = document.getElementById("opsi2").value;
+	var bcc = document.getElementById("opsi2").value;
+	var bradioBtn = document.getElementsByName("buildtipe");
+	var bc;
+		for(i=0; i<bradioBtn.length; i++){
+		if(bradioBtn[i].checked){
+			bc = bradioBtn[i].value;
+	}
+	}
+	document.getElementById("gambarurl").src = linkurl ;
+	
+	document.getElementById("namaroms").innerHTML = "✨ "+narom ;
+	document.getElementById("versirom").innerHTML = "▫️ Versi Android : "+c;
+	document.getElementById("buildrom").innerHTML = "▫️ Tipe Rom : "+bc;
+	document.getElementById("maintainers").innerHTML = "▫️ Oleh : @"+namain;
+	document.getElementById("tanggal").innerHTML = "▫️ Build Tanggal : "+tgl;
+	document.getElementById("cttn").innerHTML = ctn;
+	document.getElementById("a1").value = narom ;
+	document.getElementById("a2").value = c ;
+	document.getElementById("a3").value = bc ;
+	document.getElementById("a4").value = namain ;
+	document.getElementById("a5").value = tgl ;
+	document.getElementById("a6").value = ctn ;
+	document.getElementById("a7").value = ling ;
+	document.getElementById("a8").value = linkurl ;
+	}
+	
+	
+function posting() {
+
+	var tgapi = 'https://api.telegram.org/bot2048978248:AAGRi-nCVt7Puk2-AiHROrWntAm1youeFz4/sendPhoto?chat_id=@suicover&parse_mode=HTML&disable_web_page_preview=false&photo=';
+	var gambarkuurl = document.getElementById("imgurl").value;
+	var tgtanggal = document.getElementById("a5").value;
+	var tgvos = document.getElementById("a2").value;
+	var tgctn = document.getElementById("a6").value;
+	var tgmaintainer = document.getElementById("a4").value;
+	var tgnamarom = document.getElementById("a1").value;
+	var cth = "https://static.wikia.nocookie.net/virtualyoutuber/images/8/8b/Hoshimachi_Suisei_2019_Portrait.png/revision/latest?cb=20191205132210";
+	window.open(tgapi+gambarkuurl+"&caption=✨ "+"<strong>"+tgnamarom+"</strong>"+"%0A%0A"+
+	"▫️ Versi Android"+tgvos+"%0A"+
+	"▫️ Oleh @"+tgmaintainer+"%0A"+
+	"▫️ Tanggal Build "+tgtanggal+"%0A"+
+	"▫️ Catatan "+tgctn,"lol"
+	);
+	return false; 
+}
+	
+</script>
+	<script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
